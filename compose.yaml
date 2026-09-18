@@ -5,6 +5,9 @@ services:
     image: deluan/navidrome:latest
     user: 1000:1000 # must own the data folder and be able to read music folder(s). See Permissions below
     restart: unless-stopped
+    environment:
+      ND_BASEURL: "/navidrome"
+      ND_REVERSEPROXYWHITELIST: "0.0.0.0/0"
     volumes:
       - "/srv/media/music/data:/data"
       - "/srv/media/music/music-files:/music:ro"
